@@ -9,7 +9,8 @@ taggedDict = defaultdict(list)
 def createGrammar(filePath):
     
     pickUpLines = open(filePath, 'r')
-    
+    if 'S' not in taggedDict:
+        taggedDict['S'].append(" -> NP VP");
     for line in pickUpLines:
         token = word_tokenize(line)
         tagged = nltk.pos_tag(token)
